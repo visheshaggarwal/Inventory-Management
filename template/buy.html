@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+    
+        <title>Buy</title>
+    
+</head>
+
+<body>
+    <body style="height:1500px">
+
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="home">Home</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="productRegister">Register Product</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="customerRegister">Register Customer</a>
+             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="supplierRegister">Register Supplier</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="inventoryRegister">Register Inventory</a>
+              </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="supply">Supply</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="allProducts">All Products</a>
+            </li>
+            
+          </ul>
+                
+          
+        </nav>
+        <br><br>
+
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Wanna buy something??</legend>
+                <div class="form-group">
+                    {{ form.cid.label(class="form-control-label") }}
+
+                    {% if form.cid.errors %}
+                        {{ form.cid(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.cid.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.cid(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.iid.label(class="form-control-label") }}
+
+                    {% if form.iid.errors %}
+                        {{ form.iid(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.iid.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.iid(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.products.label(class="form-control-label") }}
+
+                    {% if form.products.errors %}
+                        {{ form.products(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.products.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.products(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+ </fieldset>
+
+
+
+            <div class="form-group">
+                {{ form.add(class="btn btn-outline-info") }}
+            </div>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+
+            
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% if isBrand %}
+  <title>All Products</title>
+  {% endif %}
+  {% if isBrand == False %}
+  <title> {{brand}}</title>
+  {% endif %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  
+</head>
+<body>
+<body style="height:1500px">
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+        <a class="nav-link" href="home">Home</a>
+      </li>
+    <li class="nav-item">
+      <a class="nav-link" href="productRegister">Register Product</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="customerRegister">Register Customer</a>
+ 	</li>
+    <li class="nav-item">
+      <a class="nav-link" href="supplierRegister">Register Supplier</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="inventoryRegister">Register Inventory</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="buy">Buy</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="supply">Supply</a>
+    </li>
+    {% if isBrand == False %}
+    <li class="nav-item">
+      <a class="nav-link" href="allProducts">All Products</a>
+    </li>
+    {% endif %}
+    
+  </ul>
+        
+  
+</nav>
+<br><br>
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+        {% if isBrand %}
+        <th>Brand</th>
+        {% endif %}
+        <th>Category</th>
+        <th>Inventory ID</th>
+        <th>Price</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for x in items %}
+      <tr>
+        {% if isBrand %}
+        <td>{{x[4]}}</td>
+        {% endif %}
+        <td>{{x[0]}}</td>
+        <td>{{x[1]}}</td>
+        <td>{{x[2]}}</td>
+        <td>{{x[3]}}</td>
+    </tr>
+    {%endfor%}
+    </tbody>
+  </table>
+</body>
+</html>
